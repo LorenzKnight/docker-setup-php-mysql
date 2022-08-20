@@ -29,4 +29,15 @@ change namespace "Example" in composer.json line 7 for your project name
 1. PhpUnit By Remote Interpreter
 2. Provide full docker path to autoloader.php /opt/project/vendor/autoload.php
 
-### Pro publico bono by Grzegorz Bielski
+## Problems and solusions
+1. database issues: "Access denied for user 'root'@'localhost' (using password: YES)"
+   Solusion: 
+            Warning: this will permanently delete the contents in your db_data volume, wiping out any previous database you had there.
+
+            docker-compose down -v
+            docker-compose up -d
+
+## How to know the ip of you db in docker
+1. docker inspect name_of_your_db | grep IPAddress
+
+### by Lorenz Knight

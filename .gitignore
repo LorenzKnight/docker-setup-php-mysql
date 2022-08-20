@@ -1,2 +1,3 @@
-vendor/
-tests-delete/
+vendor_delete/
+xdebug_info_delete.php
+docker-compose.exempelCrow1
