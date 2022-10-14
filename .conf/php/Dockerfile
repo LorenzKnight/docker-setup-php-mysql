@@ -7,25 +7,48 @@ FROM php:7.4-fpm
 # RUN pecl install xdebug \
 #     && docker-php-ext-enable xdebug
 ###################################################################
-RUN apk add --no-cache \
-      freetype \
-      libjpeg-turbo \
-      libpng \
-      freetype-dev \
-      libjpeg-turbo-dev \
-      libpng-dev \
-    && docker-php-ext-configure gd \
-      --with-freetype=/usr/include/ \
-      --with-jpeg=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd \
-    && docker-php-ext-enable gd \
-    && apk del --no-cache \
-      freetype-dev \
-      libjpeg-turbo-dev \
-      libpng-dev \
-    && rm -rf /tmp/*
+# RUN apk add --no-cache \
+#       freetype \
+#       libjpeg-turbo \
+#       libpng \
+#       freetype-dev \
+#       libjpeg-turbo-dev \
+#       libpng-dev \
+#     && docker-php-ext-configure gd \
+#       --with-freetype=/usr/include/ \
+#       --with-jpeg=/usr/include/ \
+#     && docker-php-ext-install -j$(nproc) gd \
+#     && docker-php-ext-enable gd \
+#     && apk del --no-cache \
+#       freetype-dev \
+#       libjpeg-turbo-dev \
+#       libpng-dev \
+#     && rm -rf /tmp/*
 
-RUN apk add libzip-dev
+ENV TZ="Europe/Stockholm"
+RUN apt-get update && apt-get install -y git unzip msmtp tzdata
+
+RUN curl -Lo /usr/local/bin/install-php-extensions https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions \
+    && chmod +x /usr/local/bin/install-php-extensions \
+    && /usr/local/bin/install-php-extensions \
+        bcmath \
+        gd \
+        intl \
+        pdo_mysql \
+        redis \
+        soap \
+        xsl \
+        yaml \
+        pcntl \
+        exif \
+        imagick \
+        sockets \
+        mysqli \
+        zip
+
+WORKDIR /var/www
+
+# RUN apk add libzip-dev
 
 RUN docker-php-ext-install pdo pdo_mysql mysqli zip bcmath
 ###################################################################
