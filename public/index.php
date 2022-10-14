@@ -1,12 +1,6 @@
 <?php
 $realpath = realpath(dirname(__FILE__));
-require_once('connections/conexion.php');
-
-// $query_infouser = sprintf("SELECT * FROM users");
-// $infouser = mysqli_query($con, $query_infouser) or die(mysqli_error($con));
-// $row_infouser = mysqli_fetch_assoc($infouser);
-// $totalRows_infouser = mysqli_num_rows($infouser);
-
+require_once($realpath.'/connections/conexion.php');
 ?>
 <html>
 <head>
