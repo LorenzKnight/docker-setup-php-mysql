@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
   session_start();
 }
 
-$hostname = "192.168.160.2";
+$hostname = "mydb";
 $username = "admin";
 $password = "Admin456";
 $database = "ratedb";
