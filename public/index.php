@@ -12,7 +12,7 @@ require_once($realpath.'/connections/conexion.php');
 <body>
     <div style="background-color: orange;">
         este es el index
-        <?php echo $row_infouser['name']; ?>
+        <?php //echo $row_infouser['name']; ?>
     </div>
 </body>
 </html>
