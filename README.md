@@ -3,6 +3,8 @@ Docker with PHP 7.4 fpm, Nginx, Composer, PhpUnit and MySqlDB
 
 ## Starting app
 docker-compose up -d
+or
+docker-compose up --build --force-recreate -d
 
 ## Main page - localhost
 http://localhost:8080/

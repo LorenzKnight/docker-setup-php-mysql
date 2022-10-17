@@ -21,4 +21,3 @@ RUN curl -Lo /usr/local/bin/install-php-extensions https://raw.githubusercontent
         zip
 
 WORKDIR /var/www
-
