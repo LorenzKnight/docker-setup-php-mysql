@@ -1,6 +1,8 @@
 <?php
-$realpath = realpath(dirname(__FILE__));
-require_once($realpath.'/connections/conexion.php');
+// $realpath = realpath(dirname(__FILE__));
+// require_once($realpath.'/connections/conexion.php');
+
+require_once('logic/index_be.php');
 ?>
 <html>
 <head>
@@ -10,9 +12,18 @@ require_once($realpath.'/connections/conexion.php');
 
 </head>
 <body>
-    <div style="background-color: orange;">
-        este es el index
-        <?php //echo $row_infouser['name']; ?>
-    </div>
+    <?php 
+    $array = u_all_info(1);
+
+    echo $array['name'];
+
+    $the_river = post_wall_profile();
+
+    foreach($the_river as $item)
+    {
+        echo $item['user_id'];
+    }
+    //include("src/wrap_index.php"); 
+    ?>
 </body>
 </html>

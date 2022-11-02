@@ -47,7 +47,7 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: Admin456
     volumes:
-      - "my-data:/var/lib/mysql"
+      # - "my-data:/var/lib/mysql"
       - ".conf/mysql/mysql-dump.sql:/docker-entrypoint-initdb.d/1.sql"
     networks:
       - network_mynet
